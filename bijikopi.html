@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kedai Biji Kopi Nusantara</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f8f5f2;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background: #3e2723;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero div {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  font-size: 40px;
+}
+
+/* SECTION */
+section {
+  padding: 50px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #4e342e;
+}
+
+/* MENU */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  padding-bottom: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.price {
+  margin: 5px 0;
+  color: #6d4c41;
+  font-weight: bold;
+}
+
+select {
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #6d4c41;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #5d4037;
+}
+
+/* FOOTER */
+footer {
+  background: #3e2723;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* WA FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <h1>Kedai Biji Kopi Nusantara</h1>
+  <nav>
+    <a href="#menu">Menu Biji Kopi</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>Biji Kopi Nusantara Premium</h2>
+    <p>Pilih kualitas terbaik dari berbagai daerah</p>
+  </div>
+</section>
+
+<section id="menu">
+  <h2 class="section-title">Daftar Biji Kopi</h2>
+
+  <div class="menu">
+
+<!-- GAYO -->
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Kopi Gayo">
+  <h3>Gayo Aceh 🔥</h3>
+  <p class="price">Rp 1.500 / gram</p>
+  <p class="price">Rp 2.500 / gram</p>
+  <p class="price">Rp 150.000 / kg</p>
+
+  <select id="gayo">
+    <option value="100gr">100 gram</option>
+    <option value="250gr">250 gram</option>
+    <option value="500gr">500 gram</option>
+    <option value="1kg">1 kg</option>
+  </select>
+
+  <br>
+  <button class="btn" onclick="order('Gayo Aceh','gayo')">Beli</button>
+</div>
+
+<!-- TORAJA -->
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096" alt="Kopi Toraja">
+  <h3>Toraja</h3>
+  <p class="price">Rp 1.800 / gram</p>
+  <p class="price">rp 2.800 /gram</p>
+  <p class="price">Rp 180.000 / kg</p>
+
+  <select id="toraja">
+    <option value="100gr">100 gram</option>
+    <option value="250gr">250 gram</option>
+    <option value="500gr">500 gram</option>
+    <option value="1kg">1 kg</option>
+  </select>
+
+  <br>
+  <button class="btn" onclick="order('Toraja','toraja')">Beli</button>
+</div>
+
+<!-- KINTAMANI -->
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735" alt="Kopi Kintamani">
+  <h3>Kintamani Bali</h3>
+  <p class="price">Rp 1.600 / gram</p>
+  <p class="price">Rp 2.600 / gram</p>
+  <p class="price">Rp 160.000 / kg</p>
+
+  <select id="kintamani">
+    <option value="100gr">100 gram</option>
+    <option value="250gr">250 gram</option>
+    <option value="500gr">500 gram</option>
+    <option value="1kg">1 kg</option>
+  </select>
+
+  <br>
+  <button class="btn" onclick="order('Kintamani','kintamani')">Beli</button>
+</div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Kedai Kopi Nusantara</p>
+</footer>
+
+<a href="https://wa.me/6285707506396" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+function order(product, idSelect) {
+  let phone = "6285707506396";
+  let qty = document.getElementById(idSelect).value;
+
+  let message = `Halo, saya ingin pesan:
+
+☕ Produk: ${product}
+📦 Jumlah: ${qty}
+📍 Alamat:
+💳 Pembayaran:`;
+
+  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>

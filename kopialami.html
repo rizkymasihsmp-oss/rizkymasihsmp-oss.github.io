@@ -1,0 +1,999 @@
+<html class="light" lang="id"><head></head><body class="bg-surface font-body-md text-on-surface">
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kedai Biji Kopi - Premium Coffee Roasters</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#e3beb8",
+                        "on-tertiary-container": "#839991",
+                        "tertiary": "#081c17",
+                        "outline-variant": "#d3c3c0",
+                        "on-secondary-container": "#79574c",
+                        "on-primary-fixed": "#2b1613",
+                        "on-secondary-fixed-variant": "#5e3f35",
+                        "tertiary-fixed": "#d0e8de",
+                        "on-error": "#ffffff",
+                        "background": "#fff8f6",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#504442",
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed": "#0b1f1a",
+                        "on-tertiary-fixed-variant": "#364b44",
+                        "surface-variant": "#e8e1df",
+                        "tertiary-fixed-dim": "#b5ccc3",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#33302f",
+                        "on-background": "#1e1b1a",
+                        "primary": "#271310",
+                        "on-primary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#e9bdae",
+                        "on-secondary-fixed": "#2d150d",
+                        "surface-tint": "#745853",
+                        "on-surface": "#1e1b1a",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdbcf",
+                        "on-primary-container": "#ae8d87",
+                        "surface-container-low": "#faf2f0",
+                        "error": "#ba1a1a",
+                        "primary-container": "#3e2723",
+                        "outline": "#827472",
+                        "surface-container-highest": "#e8e1df",
+                        "surface-container-high": "#eee6e5",
+                        "surface": "#fff8f6",
+                        "tertiary-container": "#1d312b",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#e3beb8",
+                        "secondary": "#79564b",
+                        "primary-fixed": "#ffdad4",
+                        "surface-dim": "#e0d8d7",
+                        "secondary-container": "#fed0c1",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f4eceb",
+                        "inverse-on-surface": "#f7efee",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "xxl": "48px",
+                        "xs": "4px",
+                        "section": "80px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "margin": "auto",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h3": ["Plus Jakarta Sans"],
+                        "h2": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .custom-scroll-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .size-btn-active {
+            border-color: #3E2723 !important;
+            background-color: #3E2723 !important;
+            color: white !important;
+            font-weight: 700 !important;
+        }
+        #cart-sidebar {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cart-item-anim {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .notification-anim {
+            animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    </style>
+<!-- 1. Sticky Navbar -->
+<header class="sticky top-0 w-full z-[100] bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+<nav class="flex justify-between items-center px-4 md:px-6 py-4 max-w-7xl mx-auto">
+<a class="flex items-center gap-2 hover:opacity-80 transition-opacity" href="#home" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">
+<span class="material-symbols-outlined text-[#3E2723]" data-icon="coffee">coffee</span>
+<span class="text-xl font-bold text-[#3E2723] font-['Plus_Jakarta_Sans'] tracking-tight">Kedai Biji Kopi</span>
+</a>
+<div class="flex items-center gap-2 md:gap-4">
+<div class="hidden lg:flex gap-6 mr-6">
+<a class="text-[#3E2723] font-semibold hover:text-[#79564b] transition-colors" href="#home" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">Beranda</a>
+<a class="text-stone-600 hover:text-[#3E2723] font-semibold transition-colors" href="#products" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">Produk</a>
+<a class="text-stone-600 hover:text-[#3E2723] font-semibold transition-colors" href="#about" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">Tentang Kami</a>
+<a class="text-stone-600 hover:text-[#3E2723] font-semibold transition-colors" href="#recent-buyers" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">Testimoni</a>
+<a class="text-stone-600 hover:text-[#3E2723] font-semibold transition-colors" href="#blog" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">Blog</a>
+<a class="text-stone-600 hover:text-[#3E2723] font-semibold transition-colors" href="#contact" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">Kontak</a>
+</div>
+<div class="flex items-center gap-1 md:gap-3">
+<button aria-label="Buka Pencarian" class="material-symbols-outlined p-2 hover:bg-stone-100 rounded-full transition-all cursor-pointer focus:ring-2 focus:ring-[#3E2723] outline-none active:scale-90" onclick="toggleSearch()">search</button>
+<button aria-label="Lihat Keranjang Belanja" class="material-symbols-outlined p-2 hover:bg-stone-100 rounded-full transition-all cursor-pointer relative focus:ring-2 focus:ring-[#3E2723] outline-none active:scale-90" onclick="toggleCart()">
+                    shopping_cart
+                    <span class="absolute top-1 right-1 bg-red-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center hidden" id="cart-count">0</span>
+</button>
+<a aria-label="Hubungi via WhatsApp" class="material-symbols-outlined p-2 hover:bg-stone-100 rounded-full transition-all cursor-pointer focus:ring-2 focus:ring-[#3E2723] outline-none active:scale-90" href="https://wa.me/6285707506396" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }" target="_blank">chat</a>
+<button aria-label="Akun Saya" class="material-symbols-outlined p-2 hover:bg-stone-100 rounded-full transition-all cursor-pointer focus:ring-2 focus:ring-[#3E2723] outline-none active:scale-90" onclick="toggleUserMenu()">person</button>
+<a class="hidden sm:block bg-[#3E2723] text-white px-5 py-2 rounded-lg font-semibold active:scale-95 hover:bg-[#5b403c] transition-all" href="#products" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">Beli Sekarang</a>
+</div>
+</div>
+</nav>
+</header>
+<!-- Search Overlay -->
+<div class="fixed inset-0 z-[200] bg-[#3E2723]/95 backdrop-blur-sm flex items-start justify-center pt-20 px-4 transition-all duration-300 opacity-0 pointer-events-none" id="search-overlay">
+<div class="w-full max-w-3xl transform translate-y-4 transition-transform duration-300" id="search-container">
+<div class="flex items-center gap-4 border-b-2 border-stone-400 pb-4">
+<span class="material-symbols-outlined text-stone-400 text-3xl">search</span>
+<input class="bg-transparent border-none text-white text-2xl w-full focus:ring-0 placeholder:text-stone-500 font-display" id="search-input" placeholder="Cari produk (contoh: Aceh Gayo)..." type="text"/>
+<button class="material-symbols-outlined text-stone-400 text-3xl hover:text-white transition-colors" onclick="toggleSearch()">close</button>
+</div>
+<div class="mt-8">
+<p class="text-stone-400 text-sm font-bold uppercase tracking-widest mb-4">Pencarian Populer</p>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all text-sm border border-white/10" onclick="setSearch('Aceh Gayo')">Aceh Gayo</button>
+<button class="px-4 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all text-sm border border-white/10" onclick="setSearch('Toraja Kalosi')">Toraja Kalosi</button>
+<button class="px-4 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all text-sm border border-white/10" onclick="setSearch('Bali Kintamani')">Bali Kintamani</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Cart -->
+<div class="fixed inset-0 z-[250] bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300" id="cart-overlay" onclick="toggleCart()"></div>
+<aside class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-[300] translate-x-full shadow-2xl flex flex-col" id="cart-sidebar">
+<div class="p-6 border-b border-stone-100 flex justify-between items-center bg-stone-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#3E2723]">shopping_cart</span>
+<h2 class="font-h3 text-lg">Keranjang Belanja</h2>
+</div>
+<button class="material-symbols-outlined p-2 hover:bg-stone-200 rounded-full transition-colors" onclick="toggleCart()">close</button>
+</div>
+<div class="flex-grow overflow-y-auto p-6 space-y-6" id="cart-items-container">
+<!-- Cart items dynamically rendered here -->
+<div class="flex flex-col items-center justify-center h-full text-stone-400 py-10" id="empty-cart-msg">
+<span class="material-symbols-outlined text-6xl mb-4">shopping_basket</span>
+<p>Keranjang masih kosong</p>
+<button class="mt-4 text-[#3E2723] font-bold underline" onclick="toggleCart(); document.getElementById('products').scrollIntoView();">Mulai Belanja</button>
+</div>
+</div>
+<div class="p-6 border-t border-stone-100 bg-stone-50">
+<div class="flex justify-between items-center mb-6">
+<span class="text-stone-500 font-medium">Subtotal</span>
+<span class="text-2xl font-bold text-[#3E2723]" id="cart-total">Rp 0</span>
+</div>
+<button class="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-[#128C7E] transition-all active:scale-95 shadow-lg disabled:opacity-50 disabled:pointer-events-none" disabled="" id="checkout-btn" onclick="checkoutWhatsApp()">
+<span class="material-symbols-outlined">chat</span> Checkout via WhatsApp
+        </button>
+</div>
+</aside>
+<!-- Floating Cart Action -->
+<div class="fixed bottom-6 right-6 z-[200]">
+<button class="bg-[#D7A86E] text-[#3E2723] w-14 h-14 rounded-full shadow-2xl flex items-center justify-center active:scale-90 hover:scale-105 transition-transform cursor-pointer border-2 border-white relative" onclick="toggleCart()">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white hidden font-bold" id="floating-cart-count">0</span>
+</button>
+</div>
+<!-- Purchase Notification Container -->
+<div class="fixed bottom-6 left-6 z-[200] pointer-events-none" id="notification-container"></div>
+<main>
+<!-- 2. Hero Section -->
+<section class="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden" id="home">
+<div class="absolute inset-0 z-0">
+<img alt="Premium coffee beans" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVpyc-WBlZ44Kd9CeFtpAEvdvDBiPSZXFKzwEaa-AFwm5Yb36zPEgouXWSzQYOB_fYFko77roJnCH_ajZ6e5TfbgwEf6DFpeJ0Vc3bsBy7Md3GYF1ZwLNR57rSVimxZZhwA8ZlMIxpYSydP_Oo56Gk-sk3NwJvGR503Bd3QTZctYiYn8VeVEwB3Foq4JknLX4v041S6WEdSQDNDUHRMBXCH6RvpQVWA7W1V4vPc85_3moBkx2WmOm0xqiYkjWxqiEx6NitMBSAiHvc"/>
+<div class="absolute inset-0 bg-black/60"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 py-section flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 mb-8">
+<span class="material-symbols-outlined text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-white font-label-caps text-label-caps">4.9 Rating oleh Pecinta Kopi</span>
+</div>
+<h1 class="font-h1 text-4xl md:text-h1 text-white mb-6 max-w-3xl leading-tight">Biji Kopi Berkualitas, Langsung dari Petani Indonesia</h1>
+<p class="text-stone-300 text-body-md md:text-body-lg font-body-lg max-w-2xl mb-10">Rasakan kesegaran artisan roast yang diproses dengan dedikasi tinggi untuk menjaga karakter rasa unik setiap origin.</p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button class="bg-[#D7A86E] text-[#3E2723] px-10 py-4 rounded-xl font-bold hover:bg-[#c4965d] transition-all shadow-lg active:scale-95 cursor-pointer text-center" onclick="document.getElementById('products').scrollIntoView()">Beli Sekarang</button>
+<a class="bg-transparent border-2 border-white text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition-all active:scale-95 cursor-pointer text-center" href="#products" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Lihat Produk</a>
+</div>
+</div>
+</section>
+<!-- 3. Trust Indicators -->
+<section class="bg-surface py-12 border-b border-stone-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="text-center">
+<p class="text-3xl font-bold text-[#3E2723]"><span class="text-3xl font-bold text-primary font-h2" id="angka-pengunjung-asli">0</span></p>
+<p class="text-stone-500 text-sm font-['Inter'] uppercase tracking-wider">Total Pengunjung</p>
+</div>
+<div class="text-center">
+<p class="text-3xl font-bold text-[#3E2723]">1,000+</p>
+<p class="text-stone-500 text-sm font-['Inter'] uppercase tracking-wider">Pelanggan Puas</p>
+</div>
+<div class="text-center">
+<p class="text-3xl font-bold text-[#3E2723]">50+</p>
+<p class="text-stone-500 text-sm font-['Inter'] uppercase tracking-wider">Varian Biji Kopi</p>
+</div>
+<div class="text-center">
+<p class="text-3xl font-bold text-[#3E2723]">20+</p>
+<p class="text-stone-500 text-sm font-['Inter'] uppercase tracking-wider">Wilayah Penghasil</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Featured Products -->
+<section class="py-section max-w-7xl mx-auto px-6" id="products">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+<div>
+<h2 class="font-h2 text-3xl md:text-h2 text-primary mb-2">Produk Unggulan Kami</h2>
+<p class="text-stone-500">Pilihan terbaik untuk ritual kopi pagi Anda</p>
+</div>
+<button class="text-[#3E2723] font-semibold flex items-center gap-1 hover:underline underline-offset-4 active:scale-95 transition-transform" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Lihat Semua <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1: Aceh Gayo -->
+<div class="bg-white rounded-xl shadow-sm border border-stone-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col product-card" data-id="aceh-gayo" id="prod-1">
+<div class="relative aspect-square overflow-hidden">
+<img alt="Aceh Gayo Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqq4iOHfELBbFgnuC0PVY0bw8PT5V8Sh1QonnW-37NbuxuwHViIZJPh4jQyg9ysQWhRFbUiPq-KiaX46hEGMvV9BvxGsYpfz3GjwpbZl2kjX3QRczGbtxdUo1SVMobZhAhhC7wUtqtlH1hM54-1BkDNiefuGJfuf3eHqOeJyPu5GlSs3mA1NV2Sz3-zZdhbb5PpHW8mR06tYsQKBnIi-GB6Z5XsEQH7A7wLYp9yufLCNLuMPu2jWh3yMZtuLQsT3ILlJuruylZBhRy"/>
+<div class="absolute top-4 right-4 bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-bold border border-red-100 shadow-sm z-10">
+                    Sisa <span class="stock-count">5</span> pcs lagi!
+                </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-h3 text-xl text-primary product-name">Aceh Gayo</h3>
+<span class="text-[#3E2723] font-bold price-display" data-price="85000">Rp 85k</span>
+</div>
+<p class="text-orange-500 text-[11px] font-bold mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="view-count">12</span> orang sedang melihat produk ini
+            </p>
+<p class="text-stone-500 text-sm mb-4 line-clamp-2">Aroma earthy dengan notes rempah dan dark chocolate. Body tebal dan low acidity.</p>
+<div class="mb-4 bg-stone-50 p-3 rounded-lg border border-stone-100">
+<p class="text-[10px] font-bold text-stone-400 uppercase mb-2">Pilih Ukuran</p>
+<div class="grid grid-cols-3 gap-2">
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all size-btn-active" onclick="selectSize(this, 85000, '250g')">250g</button>
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all" onclick="selectSize(this, 160000, '500g')">500g</button>
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all" onclick="selectSize(this, 300000, '1kg')">1kg</button>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-3"><div class="flex flex-col gap-3">
+<div class="flex items-center justify-between bg-stone-50 p-2 rounded-lg border border-stone-100 mb-2">
+<p class="text-[10px] font-bold text-stone-400 uppercase">Jumlah</p>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center hover:bg-stone-200 transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-display font-bold text-sm">1</span>
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center hover:bg-stone-200 transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-[#3E2723] text-white py-3 rounded-lg text-sm font-semibold hover:bg-[#5b403c] transition-all active:scale-95 shadow-md" onclick="handleAddToCart(this)">Tambah ke Keranjang</button>
+<button class="px-3 border border-stone-200 rounded-lg text-stone-600 hover:bg-stone-50 transition-all active:scale-95" title="Quick View"><span class="material-symbols-outlined text-xl">visibility</span></button>
+</div>
+<button class="w-full bg-[#25D366] text-white py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#128C7E] transition-all active:scale-95 shadow-sm" onclick="handleOrderWhatsAppDirect(this)">
+<span class="material-symbols-outlined text-lg">chat</span> Pesan via WhatsApp
+    </button>
+</div></div>
+</div>
+</div>
+<!-- Product Card 2: Toraja Kalosi -->
+<div class="bg-white rounded-xl shadow-sm border border-stone-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col product-card" data-id="toraja-kalosi" id="prod-2">
+<div class="relative aspect-square overflow-hidden">
+<img alt="Toraja Kalosi Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYCe9pq7mSkPkKT43Qw5xFznhNtgdXmaJMjzOxX6-66M_YA-uXRCm-C88qaiu5F1oZ7bl77Dl-tBwBdjh-0WDGbJ9etrxAgM0lQlXNOtV5Bae3KjOMZHq_5g0gYhJBpy5SPPoS6D8GQMB3IZTgVrd4Ri_T2SsjLCFauf3-KRUmUKlvWXc62QdepP9hyv_7UB2TJXaxnRl8pIgOcnGiLe3aHWgUK9om8Cqm3eUiXNYXhZEGuRdZtSRzcfITT_-KUeu6AwdM55bqhYBV"/>
+<div class="absolute top-4 right-4 bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-bold border border-red-100 shadow-sm z-10">
+                    Sisa <span class="stock-count">3</span> pcs lagi!
+                </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-h3 text-xl text-primary product-name">Toraja Kalosi</h3>
+<span class="text-[#3E2723] font-bold price-display" data-price="92000">Rp 92k</span>
+</div>
+<p class="text-orange-500 text-[11px] font-bold mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="view-count">8</span> orang sedang melihat produk ini
+            </p>
+<p class="text-stone-500 text-sm mb-4 line-clamp-2">Notes kacang-kacangan dan aroma bunga melati yang manis. Acid medium yang menyegarkan.</p>
+<div class="mb-4 bg-stone-50 p-3 rounded-lg border border-stone-100">
+<p class="text-[10px] font-bold text-stone-400 uppercase mb-2">Pilih Ukuran</p>
+<div class="grid grid-cols-3 gap-2">
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all size-btn-active" onclick="selectSize(this, 92000, '250g')">250g</button>
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all" onclick="selectSize(this, 175000, '500g')">500g</button>
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all" onclick="selectSize(this, 330000, '1kg')">1kg</button>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-3"><div class="flex flex-col gap-3">
+<div class="flex items-center justify-between bg-stone-50 p-2 rounded-lg border border-stone-100 mb-2">
+<p class="text-[10px] font-bold text-stone-400 uppercase">Jumlah</p>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center hover:bg-stone-200 transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-display font-bold text-sm">1</span>
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center hover:bg-stone-200 transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-[#3E2723] text-white py-3 rounded-lg text-sm font-semibold hover:bg-[#5b403c] transition-all active:scale-95 shadow-md" onclick="handleAddToCart(this)">Tambah ke Keranjang</button>
+<button class="px-3 border border-stone-200 rounded-lg text-stone-600 hover:bg-stone-50 transition-all active:scale-95" title="Quick View"><span class="material-symbols-outlined text-xl">visibility</span></button>
+</div>
+<button class="w-full bg-[#25D366] text-white py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#128C7E] transition-all active:scale-95 shadow-sm" onclick="handleOrderWhatsAppDirect(this)">
+<span class="material-symbols-outlined text-lg">chat</span> Pesan via WhatsApp
+    </button>
+</div></div>
+</div>
+</div>
+<!-- Product Card 3: Bali Kintamani -->
+<div class="bg-white rounded-xl shadow-sm border border-stone-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col product-card" data-id="bali-kintamani" id="prod-3">
+<div class="relative aspect-square overflow-hidden">
+<img alt="Bali Kintamani Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDINfKsjK_byPHvwf7oXO0RWMBmO05TUrsvco3NcWIqQGnhqULzbIWDZyMF9QLcalV9aFnN1EXm3Iw_Xw4K4h1jzfDl_jMACAYPtuItjfHUanExXZJeW1wOwwnLjJ2PIDVTR-CoQ0FmIP6NTuCjYhVjCSIe1PLLjOllee_Ox0T-N-ENRhKjmTxrPsIALlw2PEo5kYDtSsqP-MJKdiDSvmvtug06ClXVGdWFp26V9_0W7WtS5tlIS4xxtKsp3kzMvw3UQDCnhqoOLdMq"/>
+<div class="absolute top-4 right-4 bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-bold border border-red-100 shadow-sm z-10">
+                    Sisa <span class="stock-count">7</span> pcs lagi!
+                </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-h3 text-xl text-primary product-name">Bali Kintamani</h3>
+<span class="text-[#3E2723] font-bold price-display" data-price="88000">Rp 88k</span>
+</div>
+<p class="text-orange-500 text-[11px] font-bold mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="view-count">15</span> orang sedang melihat produk ini
+            </p>
+<p class="text-stone-500 text-sm mb-4 line-clamp-2">Karakter citrus yang kuat dengan body ringan. Sangat cocok diseduh V60.</p>
+<div class="mb-4 bg-stone-50 p-3 rounded-lg border border-stone-100">
+<p class="text-[10px] font-bold text-stone-400 uppercase mb-2">Pilih Ukuran</p>
+<div class="grid grid-cols-3 gap-2">
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all size-btn-active" onclick="selectSize(this, 88000, '250g')">250g</button>
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all" onclick="selectSize(this, 165000, '500g')">500g</button>
+<button class="size-btn py-2 border border-stone-200 rounded-md text-xs font-medium hover:border-[#3E2723] transition-all" onclick="selectSize(this, 310000, '1kg')">1kg</button>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-3"><div class="flex flex-col gap-3">
+<div class="flex items-center justify-between bg-stone-50 p-2 rounded-lg border border-stone-100 mb-2">
+<p class="text-[10px] font-bold text-stone-400 uppercase">Jumlah</p>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center hover:bg-stone-200 transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-display font-bold text-sm">1</span>
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center hover:bg-stone-200 transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-[#3E2723] text-white py-3 rounded-lg text-sm font-semibold hover:bg-[#5b403c] transition-all active:scale-95 shadow-md" onclick="handleAddToCart(this)">Tambah ke Keranjang</button>
+<button class="px-3 border border-stone-200 rounded-lg text-stone-600 hover:bg-stone-50 transition-all active:scale-95" title="Quick View"><span class="material-symbols-outlined text-xl">visibility</span></button>
+</div>
+<button class="w-full bg-[#25D366] text-white py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#128C7E] transition-all active:scale-95 shadow-sm" onclick="handleOrderWhatsAppDirect(this)">
+<span class="material-symbols-outlined text-lg">chat</span> Pesan via WhatsApp
+    </button>
+</div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. About Us -->
+<section class="py-section bg-stone-50" id="about">
+<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10">
+<img alt="Coffee farmer in Indonesia" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEotvk4_8up72V3p5eMqPiimShF2sBvQjJ7aE6-Vv48JBiEr88U99kw7eGZc1zfuXbwoxOqSf7HMmv4EOsW4hqgPsswqJcOJLODRnc5PrEaRXkQyv0j7l-exkKORm_aP1iakbWmsP4udrukMUPYyaTL2C5cDDpBqoqUlLmpn_bPVJcP5qui6KxqoAhjbS4BWFH0PguUq58DjRhDBN9TN_gkmZ23Cwh9J571g9m8cXDhZXgrRYYOUbJGNMGEUsc-j08X9K0LPEgY801"/>
+</div>
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-[#D7A86E] rounded-3xl -z-10 hidden lg:block"></div>
+</div>
+<div>
+<h2 class="font-h2 text-3xl md:text-h2 text-primary mb-6">Cerita di Balik Setiap Cangkir</h2>
+<p class="text-stone-600 text-body-lg mb-6 leading-relaxed">Kami percaya bahwa kopi yang nikmat berawal dari hubungan baik dengan para petani. Kedai Biji Kopi bekerja sama secara langsung dengan komunitas petani lokal untuk memastikan kesejahteraan mereka serta kualitas biji yang optimal.</p>
+<p class="text-stone-600 text-body-lg mb-8 leading-relaxed">Setiap biji disangrai dalam batch kecil oleh master roaster kami, menjaga setiap detail profil rasa agar sampai ke tangan Anda dalam keadaan paling segar.</p>
+<button class="bg-[#3E2723] text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all active:scale-95 focus:ring-2 focus:ring-[#D7A86E] outline-none">Pelajari Lebih Lanjut</button>
+</div>
+</div>
+</section>
+<!-- Recent Buyers Section -->
+<section class="py-section bg-surface-container-low" id="recent-buyers">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="font-h2 text-3xl md:text-h2 text-primary mb-2">Mereka yang Sudah Menikmati Biji Kopi Kami</h2>
+<p class="text-stone-500">Ribuan pecinta kopi telah membuktikannya</p>
+</div>
+<div class="flex overflow-x-auto gap-6 pb-8 custom-scroll-hide">
+<div class="min-w-[280px] bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex-shrink-0 hover:-translate-y-2 transition-transform cursor-default">
+<div class="flex gap-1 text-yellow-400 mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-stone-700 italic mb-4">"Aceh Gayo-nya juara! Wanginya langsung serumah pas baru dibuka."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-[#3E2723] rounded-full flex items-center justify-center text-white text-xs font-bold">A</div>
+<div>
+<h6 class="font-bold text-sm text-primary">Andi S.</h6>
+<p class="text-[10px] text-stone-400">Jakarta • Membeli Aceh Gayo</p>
+</div>
+</div>
+</div>
+<div class="min-w-[280px] bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex-shrink-0 hover:-translate-y-2 transition-transform cursor-default">
+<div class="flex gap-1 text-yellow-400 mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-stone-700 italic mb-4">"Pengiriman cepat ke Bandung, Toraja Kalosi-nya sangat fresh."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-stone-200 rounded-full flex items-center justify-center text-[#3E2723] text-xs font-bold">L</div>
+<div>
+<h6 class="font-bold text-sm text-primary">Larasati</h6>
+<p class="text-[10px] text-stone-400">Bandung • Membeli Toraja Kalosi</p>
+</div>
+</div>
+</div>
+<div class="min-w-[280px] bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex-shrink-0 hover:-translate-y-2 transition-transform cursor-default">
+<div class="flex gap-1 text-yellow-400 mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-stone-700 italic mb-4">"Kintamani-nya enak banget buat manual brew pagi-pagi."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-[#D7A86E] rounded-full flex items-center justify-center text-[#3E2723] text-xs font-bold">R</div>
+<div>
+<h6 class="font-bold text-sm text-primary">Rizky F.</h6>
+<p class="text-[10px] text-stone-400">Surabaya • Membeli Bali Kintamani</p>
+</div>
+</div>
+</div>
+<div class="min-w-[280px] bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex-shrink-0 hover:-translate-y-2 transition-transform cursor-default">
+<div class="flex gap-1 text-yellow-400 mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-stone-700 italic mb-4">"Roasting profil-nya pas, gak ada bau gosong. Mantap!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-stone-300 rounded-full flex items-center justify-center text-primary text-xs font-bold">D</div>
+<div>
+<h6 class="font-bold text-sm text-primary">Dedi K.</h6>
+<p class="text-[10px] text-stone-400">Medan • Membeli Aceh Gayo</p>
+</div>
+</div>
+</div>
+<div class="min-w-[280px] bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex-shrink-0 hover:-translate-y-2 transition-transform cursor-default">
+<div class="flex gap-1 text-yellow-400 mb-3">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-stone-700 italic mb-4">"Packaging rapi dan aman. Biji kopi masih fresh saat sampai."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">M</div>
+<div>
+<h6 class="font-bold text-sm text-primary">Maya W.</h6>
+<p class="text-[10px] text-stone-400">Yogyakarta • Membeli Toraja Kalosi</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 13. Location Section -->
+<section class="py-section bg-surface" id="blog">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-h2 text-3xl md:text-h2 text-primary mb-2">Blog &amp; Edukasi Kopi</h2>
+<p class="text-stone-500">Pelajari lebih dalam tentang dunia kopi dari ahlinya</p>
+</div>
+<a class="text-primary font-bold hover:underline" href="#">Lihat Semua Artikel</a>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-2xl overflow-hidden mb-4 border border-stone-200">
+<img alt="Brewing Methods" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVpyc-WBlZ44Kd9CeFtpAEvdvDBiPSZXFKzwEaa-AFwm5Yb36zPEgouXWSzQYOB_fYFko77roJnCH_ajZ6e5TfbgwEf6DFpeJ0Vc3bsBy7Md3GYF1ZwLNR57rSVimxZZhwA8ZlMIxpYSydP_Oo56Gk-sk3NwJvGR503Bd3QTZctYiYn8VeVEwB3Foq4JknLX4v041S6WEdSQDNDUHRMBXCH6RvpQVWA7W1V4vPc85_3moBkx2WmOm0xqiYkjWxqiEx6NitMBSAiHvc"/>
+</div>
+<h3 class="font-bold text-lg mb-2 group-hover:text-secondary transition-colors">Panduan Memilih Grind Size untuk V60</h3>
+<p class="text-stone-500 text-sm line-clamp-2">Kunci dari seduhan yang seimbang dimulai dari tingkat kehalusan gilingan yang tepat...</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-2xl overflow-hidden mb-4 border border-stone-200">
+<img alt="Coffee Origins" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqq4iOHfELBbFgnuC0PVY0bw8PT5V8Sh1QonnW-37NbuxuwHViIZJPh4jQyg9ysQWhRFbUiPq-KiaX46hEGMvV9BvxGsYpfz3GjwpbZl2kjX3QRczGbtxdUo1SVMobZhAhhC7wUtqtlH1hM54-1BkDNiefuGJfuf3eHqOeJyPu5GlSs3mA1NV2Sz3-zZdhbb5PpHW8mR06tYsQKBnIi-GB6Z5XsEQH7A7wLYp9yufLCNLuMPu2jWh3yMZtuLQsT3ILlJuruylZBhRy"/>
+</div>
+<h3 class="font-bold text-lg mb-2 group-hover:text-secondary transition-colors">Mengenal Karakter Unik Kopi Sumatera</h3>
+<p class="text-stone-500 text-sm line-clamp-2">Earthy, spicy, dan body yang tebal. Mengapa kopi Sumatera begitu ikonik di mata dunia...</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-2xl overflow-hidden mb-4 border border-stone-200">
+<img alt="Roasting Process" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYCe9pq7mSkPkKT43Qw5xFznhNtgdXmaJMjzOxX6-66M_YA-uXRCm-C88qaiu5F1oZ7bl77Dl-tBwBdjh-0WDGbJ9etrxAgM0lQlXNOtV5Bae3KjOMZHq_5g0gYhJBpy5SPPoS6D8GQMB3IZTgVrd4Ri_T2SsjLCFauf3-KRUmUKlvWXc62QdepP9hyv_7UB2TJXaxnRl8pIgOcnGiLe3aHWgUK9om8Cqm3eUiXNYXhZEGuRdZtSRzcfITT_-KUeu6AwdM55bqhYBV"/>
+</div>
+<h3 class="font-bold text-lg mb-2 group-hover:text-secondary transition-colors">Seni Menentukan Roast Profile yang Pas</h3>
+<p class="text-stone-500 text-sm line-clamp-2">Dibalik setiap butir biji kopi terdapat proses sains dan seni sangrai yang teliti...</p>
+</div>
+</div>
+</div>
+</section><section class="py-section bg-white" id="contact">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<h2 class="font-h2 text-3xl md:text-h2 text-primary mb-6">Lokasi Kami</h2>
+<p class="text-stone-600 text-body-lg mb-8 leading-relaxed">
+                        Kunjungi roastery dan cafe kami untuk merasakan langsung aroma biji kopi yang baru saja disangrai. Kami menyambut Anda dengan hangat di jantung kota Bandung.
+                    </p>
+<div class="flex items-start gap-4 mb-8">
+<span class="material-symbols-outlined text-[#D7A86E] text-2xl mt-1">location_on</span>
+<div>
+<h5 class="font-bold text-primary mb-1">Alamat Fisik</h5>
+<p class="text-stone-500">Jl. Kopi Harum No. 12, Bandung, Indonesia</p>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-10">
+<span class="material-symbols-outlined text-[#D7A86E] text-2xl mt-1">schedule</span>
+<div>
+<h5 class="font-bold text-primary mb-1">Jam Operasional</h5>
+<p class="text-stone-500">Senin - Minggu: 08.00 - 22.00 WIB</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-4">
+<a class="inline-flex items-center gap-2 bg-[#3E2723] text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all active:scale-95" href="https://maps.app.goo.gl/r5Yv3y8Z7Z7Z7Z7Z7" target="_blank">
+<span>Buka di Google Maps</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+<a class="inline-flex items-center gap-2 border-2 border-[#3E2723] text-[#3E2723] px-8 py-4 rounded-xl font-bold hover:bg-[#3E2723] hover:text-white transition-all active:scale-95" href="https://wa.me/6285707506396" target="_blank">
+<span class="material-symbols-outlined text-sm">chat</span>
+<span>Chat WhatsApp</span>
+</a>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<div class="relative aspect-square md:aspect-video rounded-3xl overflow-hidden shadow-xl border border-stone-100 bg-stone-50">
+<iframe allowfullscreen="" height="100%" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311641660157!3d-6.9034443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146050390e633035!2sBandung%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" style="border:0;" width="100%"></iframe>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/50 pointer-events-none">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-[#3E2723] rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">coffee</span>
+</div>
+<div>
+<p class="font-bold text-xs text-primary">Kedai Biji Kopi</p>
+<p class="text-[8px] text-stone-500 uppercase font-bold tracking-wider">Bandung Roastery</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-stone-100 font-['Plus_Jakarta_Sans'] text-sm leading-relaxed border-t border-stone-200 pt-20 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto mb-16">
+<div class="col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[#3E2723]">coffee</span>
+<span class="text-lg font-bold text-[#3E2723]">Kedai Biji Kopi</span>
+</div>
+<p class="text-stone-500 mb-8 max-w-xs">Dedikasi kami untuk membawa biji kopi terbaik nusantara langsung ke pintu rumah Anda dengan kesegaran maksimal.</p>
+<div class="flex gap-4">
+<a class="p-2 bg-white rounded-full text-[#3E2723] hover:scale-110 transition-transform shadow-sm" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="p-2 bg-white rounded-full text-[#3E2723] hover:scale-110 transition-transform shadow-sm" href="https://wa.me/6285707506396" onclick="toggleCart()" target="_blank"><span class="material-symbols-outlined">chat</span></a>
+<a class="p-2 bg-white rounded-full text-[#3E2723] hover:scale-110 transition-transform shadow-sm" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+</div>
+</div>
+<div>
+<h5 class="font-bold text-[#3E2723] mb-6">Menu</h5>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-[#3E2723] transition-colors" href="#home" onclick="const target = this.getAttribute('href'); if(target.startsWith('#')) { event.preventDefault(); document.querySelector(target).scrollIntoView({behavior: 'smooth'}); }">Beranda</a></li>
+<li><a class="text-stone-500 hover:text-[#3E2723] transition-colors" href="#products">Produk</a></li>
+<li><a class="text-stone-500 hover:text-[#3E2723] transition-colors" href="#about">Tentang Kami</a></li>
+<li><a class="text-stone-500 hover:text-[#3E2723] transition-colors" href="#blog">Blog Edukasi</a></li>
+<li><a class="text-stone-500 hover:text-[#3E2723] transition-colors" href="#contact">Kontak</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 pt-8 border-t border-stone-200 text-center text-stone-400">
+<p>© 2024 Kedai Biji Kopi. Dibuat dengan cinta untuk Pecinta Kopi Indonesia.</p>
+</div>
+</footer>
+<script>
+    // State Management
+    let cart = [];
+    const productsData = {
+        'aceh-gayo': { name: 'Aceh Gayo', basePrice: 85000, size: '250g', price: 85000 },
+        'toraja-kalosi': { name: 'Toraja Kalosi', basePrice: 92000, size: '250g', price: 92000 },
+        'bali-kintamani': { name: 'Bali Kintamani', basePrice: 88000, size: '250g', price: 88000 }
+    };
+
+    // Social Proof Data
+    const dummyNames = ['Andi dari Jakarta', 'Siti dari Bandung', 'Budi dari Surabaya', 'Diana dari Malang', 'Eko dari Medan', 'Fani dari Bali'];
+    const dummyProducts = ['Aceh Gayo', 'Toraja Kalosi', 'Bali Kintamani'];
+    const dummyTimes = ['2 menit', '5 menit', '10 menit', '15 menit', '1 jam'];
+
+    // UI Functions
+    function toggleSearch() {
+        const overlay = document.getElementById('search-overlay');
+        const container = document.getElementById('search-container');
+        const input = document.getElementById('search-input');
+        
+        if (overlay.classList.contains('opacity-0')) {
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+            container.classList.remove('translate-y-4');
+            container.classList.add('translate-y-0');
+            setTimeout(() => input.focus(), 300);
+        } else {
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+            container.classList.add('translate-y-4');
+            container.classList.remove('translate-y-0');
+        }
+    }
+
+    function setSearch(val) {
+        document.getElementById('search-input').value = val;
+        navigateToProduct(val);
+    }
+
+    function navigateToProduct(productName) {
+        const cards = document.querySelectorAll('.product-card');
+        let found = false;
+        cards.forEach(card => {
+            const name = card.querySelector('.product-name').textContent.toLowerCase();
+            if (name.includes(productName.toLowerCase())) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.classList.add('ring-4', 'ring-[#D7A86E]', 'ring-offset-4');
+                setTimeout(() => card.classList.remove('ring-4', 'ring-[#D7A86E]', 'ring-offset-4'), 3000);
+                found = true;
+            }
+        });
+        if (!found) document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        toggleSearch();
+    }
+
+    // Product Card Interactivity
+    function selectSize(btn, priceValue, sizeText) {
+        const card = btn.closest('.product-card');
+        const productId = card.getAttribute('data-id');
+        const priceDisplay = card.querySelector('.price-display');
+        const sizeButtons = card.querySelectorAll('.size-btn');
+        
+        sizeButtons.forEach(b => b.classList.remove('size-btn-active'));
+        btn.classList.add('size-btn-active');
+        
+        const kPrice = priceValue >= 1000 ? (priceValue / 1000) + 'k' : priceValue;
+        priceDisplay.textContent = 'Rp ' + kPrice;
+        
+        // Update local state for that product instance
+        productsData[productId].price = priceValue;
+        productsData[productId].size = sizeText;
+    }
+
+    // Cart Core Functions
+    function toggleCart() {
+        const sidebar = document.getElementById('cart-sidebar');
+        const overlay = document.getElementById('cart-overlay');
+        const isOpen = !sidebar.classList.contains('translate-x-full');
+        
+        if (isOpen) {
+            sidebar.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+        } else {
+            sidebar.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+            renderCart();
+        }
+    }
+
+    function addToCart(productId) {
+        const prod = productsData[productId];
+        const existingItem = cart.find(item => item.id === productId && item.size === prod.size);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: productId,
+                name: prod.name,
+                size: prod.size,
+                price: prod.price,
+                quantity: 1
+            });
+        }
+        
+        updateCartBadge();
+        toggleCart();
+        renderCart();
+    }
+
+    function updateCartBadge() {
+        const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+        const badges = [document.getElementById('cart-count'), document.getElementById('floating-cart-count')];
+        
+        badges.forEach(badge => {
+            if (count > 0) {
+                badge.textContent = count;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        });
+    }
+
+    function renderCart() {
+        const container = document.getElementById('cart-items-container');
+        const emptyMsg = document.getElementById('empty-cart-msg');
+        const totalDisplay = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        
+        if (cart.length === 0) {
+            container.innerHTML = '';
+            container.appendChild(emptyMsg);
+            totalDisplay.textContent = 'Rp 0';
+            checkoutBtn.disabled = true;
+            return;
+        }
+
+        emptyMsg.remove();
+        container.innerHTML = '';
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            
+            const itemEl = document.</script><div class="fixed inset-0 z-[400] bg-black/20 hidden" id="user-menu-overlay" onclick="toggleUserMenu()"></div><div class="fixed top-16 right-4 md:right-10 z-[401] bg-white rounded-xl shadow-2xl border border-stone-100 w-64 overflow-hidden transition-all scale-95 opacity-0 pointer-events-none transform origin-top-right" id="user-menu"><div class="p-4 border-b border-stone-50"><p class="text-xs text-stone-400 font-bold uppercase">Selamat Datang</p><p class="font-bold text-[#3E2723]">Pecinta Kopi</p></div><div class="p-2"><a class="flex items-center gap-3 p-3 hover:bg-stone-50 rounded-lg transition-colors text-sm" href="#"><span class="material-symbols-outlined text-stone-400">person</span> Profil Saya</a><a class="flex items-center gap-3 p-3 hover:bg-stone-50 rounded-lg transition-colors text-sm" href="#"><span class="material-symbols-outlined text-stone-400">history</span> Riwayat Pesanan</a><div class="border-t border-stone-50 my-2"></div><button class="w-full flex items-center gap-3 p-3 hover:bg-red-50 text-red-600 rounded-lg transition-colors text-sm font-bold"><span class="material-symbols-outlined">logout</span> Keluar</button></div></div><script>let cart = [];
+
+function toggleSearch() {
+    const overlay = document.getElementById('search-overlay');
+    const container = document.getElementById('search-container');
+    if (overlay.classList.contains('opacity-0')) {
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('translate-y-4');
+        container.classList.add('translate-y-0');
+    } else {
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        overlay.classList.remove('opacity-100');
+        container.classList.add('translate-y-4');
+        container.classList.remove('translate-y-0');
+    }
+}
+
+function selectSize(btn, priceValue, sizeText) {
+    const card = btn.closest('.product-card');
+    const priceDisplay = card.querySelector('.price-display');
+    const sizeButtons = card.querySelectorAll('.size-btn');
+    
+    sizeButtons.forEach(b => b.classList.remove('size-btn-active'));
+    btn.classList.add('size-btn-active');
+    
+    const kPrice = priceValue >= 1000 ? (priceValue / 1000) + 'k' : priceValue;
+    priceDisplay.textContent = 'Rp ' + kPrice;
+    priceDisplay.setAttribute('data-price', priceValue);
+    card.setAttribute('data-selected-size', sizeText);
+}
+
+function changeQty(btn, delta) {
+    const display = btn.parentElement.querySelector('.qty-display');
+    let current = parseInt(display.textContent);
+    current = Math.max(1, current + delta);
+    display.textContent = current;
+}
+
+function toggleCart() {
+    const sidebar = document.getElementById('cart-sidebar');
+    const overlay = document.getElementById('cart-overlay');
+    const isOpen = !sidebar.classList.contains('translate-x-full');
+    
+    if (isOpen) {
+        sidebar.classList.add('translate-x-full');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+    } else {
+        sidebar.classList.remove('translate-x-full');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        renderCart();
+    }
+}
+
+function handleAddToCart(btn) {
+    const card = btn.closest('.product-card');
+    const id = card.getAttribute('data-id');
+    const name = card.querySelector('.product-name').textContent;
+    const qty = parseInt(card.querySelector('.qty-display').textContent);
+    const size = card.getAttribute('data-selected-size') || '250g';
+    const price = parseInt(card.querySelector('.price-display').getAttribute('data-price'));
+
+    const existing = cart.find(item => item.id === id && item.size === size);
+    if (existing) {
+        existing.quantity += qty;
+    } else {
+        cart.push({ id, name, size, price, quantity: qty });
+    }
+
+    updateCartUI();
+    showNotification(`Berhasil menambah ${qty}x ${name} (${size}) ke keranjang!`);
+    card.querySelector('.qty-display').textContent = '1';
+}
+
+function updateCartUI() {
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badges = [document.getElementById('cart-count'), document.getElementById('floating-cart-count')];
+    badges.forEach(b => {
+        if (count > 0) {
+            b.textContent = count;
+            b.classList.remove('hidden');
+        } else {
+            b.classList.add('hidden');
+        }
+    });
+    renderCart();
+}
+
+function renderCart() {
+    const container = document.getElementById('cart-items-container');
+    const totalDisplay = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    if (cart.length === 0) {
+        container.innerHTML = `<div class="flex flex-col items-center justify-center h-full text-stone-400 py-10"><span class="material-symbols-outlined text-6xl mb-4">shopping_basket</span><p>Keranjang masih kosong</p></div>`;
+        totalDisplay.textContent = 'Rp 0';
+        checkoutBtn.disabled = true;
+        return;
+    }
+
+    let total = 0;
+    container.innerHTML = cart.map((item, idx) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        return `<div class="flex gap-4 bg-stone-50 p-3 rounded-xl border border-stone-100">
+<div class="flex-grow">
+<h4 class="font-bold text-[#3E2723]">${item.name}</h4>
+<p class="text-xs text-stone-500 mb-2">Ukuran: ${item.size}</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button class="w-6 h-6 border border-stone-200 rounded" onclick="updateCartQty(${idx}, -1)">-</button>
+<span class="text-sm font-bold">${item.quantity}</span>
+<button class="w-6 h-6 border border-stone-200 rounded" onclick="updateCartQty(${idx}, 1)">+</button>
+</div>
+<span class="font-bold text-sm text-[#3E2723]">Rp ${subtotal.toLocaleString('id-ID')}</span>
+</div>
+</div>
+<button class="text-stone-400" onclick="removeFromCart(${idx})"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>`;
+    }).join('');
+    totalDisplay.textContent = 'Rp ' + total.toLocaleString('id-ID');
+    checkoutBtn.disabled = false;
+}
+
+function updateCartQty(idx, delta) {
+    cart[idx].quantity += delta;
+    if (cart[idx].quantity <= 0) cart.splice(idx, 1);
+    updateCartUI();
+}
+
+function removeFromCart(idx) {
+    cart.splice(idx, 1);
+    updateCartUI();
+}
+
+function checkoutWhatsApp() {
+    let msg = "Halo Kedai Biji Kopi, saya ingin memesan:\n\n";
+    cart.forEach(item => {
+        msg += `- ${item.name} (${item.size}) x ${item.quantity} = Rp ${(item.price * item.quantity).toLocaleString('id-ID')}\n`;
+    });
+    msg += `\nTotal: ${document.getElementById('cart-total').textContent}`;
+    window.open(`https://wa.me/6285707506396?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function showNotification(msg) {
+    const container = document.getElementById('notification-container');
+    const el = document.createElement('div');
+    el.className = "bg-[#3E2723] text-white px-6 py-3 rounded-xl shadow-2xl mb-4 notification-anim flex items-center gap-3 pointer-events-auto border border-white/20";
+    el.innerHTML = `<span class="material-symbols-outlined text-yellow-400">check_circle</span> <span class="text-sm font-medium">${msg}</span>`;
+    container.appendChild(el);
+    setTimeout(() => el.remove(), 4000);
+}
+
+function handleOrderWhatsAppDirect(btn) {
+    const card = btn.closest('.product-card');
+    const name = card.querySelector('.product-name').textContent;
+    const qty = card.querySelector('.qty-display').textContent;
+    const size = card.getAttribute('data-selected-size') || '250g';
+    const msg = `Halo Kedai Biji Kopi, saya ingin memesan ${name} ukuran ${size} sebanyak ${qty} pcs.`;
+    window.open(`https://wa.me/6285707506396?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function toggleUserMenu() {
+    const menu = document.getElementById('user-menu');
+    const overlay = document.getElementById('user-menu-overlay');
+    if (menu.classList.contains('pointer-events-none')) {
+        menu.classList.remove('scale-95', 'opacity-0', 'pointer-events-none');
+        overlay.classList.remove('hidden');
+    } else {
+        menu.classList.add('scale-95', 'opacity-0', 'pointer-events-none');
+        overlay.classList.add('hidden');
+    }
+}</script><script>
+    function animateVisitorCounter() {
+        const counterElement = document.getElementById('angka-pengunjung-asli');
+        if (!counterElement) return;
+        
+        const baseVisitors = 25000;
+        
+        // Get and increment visit count from localStorage using 'lumerin_visitor_count' as requested
+        let visitCount = localStorage.getItem('lumerin_visitor_count') || 0;
+        visitCount = parseInt(visitCount) + 1;
+        localStorage.setItem('lumerin_visitor_count', visitCount);
+        
+        const targetValue = baseVisitors + visitCount;
+        const duration = 2000; // 2 seconds animation
+        const frameDuration = 1000 / 60;
+        const totalFrames = Math.round(duration / frameDuration);
+        let frame = 0;
+
+        const counter = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            // Ease out cubic function for a smooth finish
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.round(targetValue * easedProgress);
+
+            counterElement.textContent = currentValue.toLocaleString('id-ID') + '+';
+
+            if (frame === totalFrames) {
+                clearInterval(counter);
+                counterElement.textContent = targetValue.toLocaleString('id-ID') + '+';
+            }
+        }, frameDuration);
+    }
+
+    document.addEventListener('DOMContentLoaded', animateVisitorCounter);
+</script></body></html>
